@@ -1,0 +1,30 @@
+h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+.mat-tab-group {
+    text-align: center !important;
+}
+button {
+    margin: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.container-pomo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 50px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+mat-toolbar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}

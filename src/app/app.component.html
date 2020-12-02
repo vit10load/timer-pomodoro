@@ -1,0 +1,18 @@
+<h1>TIMER POMODORO</h1>
+<mat-tab-group>
+  <mat-tab label="25 MIN">
+    <button (click)='startTimer()' mat-raised-button color="primary">Start Timer</button>
+    <button (click)='pauseTimer()' mat-raised-button color="warn">Pause</button>
+    <div class="container-pomo">
+      <p>{{minutes}} minutes</p>
+      <p>{{counterIn60}} seconds</p>
+      <p>{{pomodoros}} pomodoros</p>
+    </div>
+  </mat-tab>
+  <mat-tab label="5 MIN">
+    Content 2 
+  </mat-tab>
+</mat-tab-group>
+<mat-toolbar>
+  Design by Vitor Oliveira da Silva
+</mat-toolbar>
