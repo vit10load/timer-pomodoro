@@ -21,15 +21,15 @@ export class AppComponent {
   sum: number = 0;
   audio = new Audio();
 
-  timeLeftFive: number = 60;// in seconds
+  timeLeftFive: number = 300;// in seconds
+  secondsAuxFive: number = this.timeLeftFive
   minutesFive: number = 5;
+  minutesAuxFive: number = this.minutesFive
   counterFive: number = 0;
+  counterIn60Five: number = 60;
   intervalFive: any;
+  sumFive: number = 0;
 
-  timeLeftTen: number = 60;// in seconds
-  minutesTen: number = 10;
-  counterTen: number = 0;
-  intervalTen: any;
 
 
   /***
@@ -75,7 +75,28 @@ export class AppComponent {
 
   startTimerForFiveMinutes(): void {
     this.intervalFive = setInterval(() => {
-      
+      this.timeLeftFive--;
+      this.counterFive++;
+      if(this.counterFive == 60){
+        this.minutesFive--;
+        this.sumFive += this.counterFive;
+        this.counterIn60Five = 60;
+        this.counterFive = 0;
+        if(this.sumFive == ((this.secondsAuxFive/this.minutesAuxFive) * this.minutesAuxFive)){
+          this.audio.src = '../../assets/teste.ogg';
+          this.audio.load();
+          this.audio.play();
+          this.sumFive = 0;
+          this.counterFive = 0;
+          this.timeLeftFive = this.secondsAuxFive;
+          this.minutesFive = 5;
+          this.pauseTimerForFiveMinutes();
+          this._snack.open('Intervalo finalizado!', ':)', {
+            duration: 4500,
+          });
+        }
+    }
+    this.counterIn60Five--;
     },1000)
   }
 
